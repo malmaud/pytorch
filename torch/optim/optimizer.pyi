@@ -1,9 +1,11 @@
-from typing import Iterable, Union, Callable, Optional
+from typing import Iterable, Union, Callable, Optional, List, Dict
 from .. import Tensor
 
 _params_t = Union[Iterable[Tensor], Iterable[dict]]
 
 class Optimizer:
+    param_groups: List[Dict]
+    
     def __init__(self, params: _params_t) -> None: ...
     def state_dict(self) -> dict: ...
     def load_state_dict(self, state_dict: dict) -> None: ...
